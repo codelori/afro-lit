@@ -18,5 +18,6 @@ https://www.googleapis.com/books/v1/volumes?q=afro-lit&printType=books&key={YOUR
 ##### Home Page:
 ![wireframe](https://media.git.generalassemb.ly/user/19645/files/42298580-62b9-11e9-91b9-baf852efacd9)
 
-
+##### Wishlist:
+![wireframe2](https://media.git.generalassemb.ly/user/19645/files/a9940500-62ba-11e9-88cc-58a1ca5945a4)
 
