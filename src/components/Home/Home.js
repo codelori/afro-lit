@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import Header from '../Header/Header'
+import FilterBooks from '../FilterBooks/FilterBooks'
 
 class Home extends Component{
   render(){
     return(
-      <h1>Home: Afro Lit</h1>
+      <div className="component-container">
+        <Header />
+        <FilterBooks />
+      </div>
     )
   }
 }

@@ -1,0 +1,18 @@
+
+#filter-books-container{
+  width: 200px;
+  margin-left: 20px;
+  border: solid black
+
+}
+
+button{
+  display: block
+}
+
+a{
+  text-decoration: none
+}
+li{
+  list-style: none
+}
