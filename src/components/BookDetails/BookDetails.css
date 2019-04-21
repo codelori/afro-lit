@@ -1,0 +1,14 @@
+.book-details-container{
+  width: 80%;
+  min-width: 800px;
+  height: 40vh;
+  border: solid black;
+  display: flex;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  padding: 1.5%
+}
+.book-cover{
+  height: 100%;
+  margin-right: 1.5%
+}

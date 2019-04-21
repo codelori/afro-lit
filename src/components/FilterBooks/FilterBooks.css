@@ -1,7 +1,7 @@
 
 #filter-books-container{
   width: 200px;
-  margin-left: 20px;
+  margin-left: 2.5%;
   border: solid black
 
 }
@@ -10,9 +10,18 @@ button{
   display: block
 }
 
-a{
+.filter-links{
   text-decoration: none
 }
-li{
+
+.filter-links:visited{
+  color: black
+}
+
+.filter-links:hover{
+  color: green
+}
+
+.genre-list-items{
   list-style: none
 }

@@ -7,9 +7,9 @@ class Header extends Component{
       <header>
         <h1>Afro Lit</h1>
         <nav>
-          <a href='#'>Home</a>
-          <a href='#'>Bestseller's</a>
-          <a href='#'>Wishlist</a>
+          <h4>Home</h4>
+          <h4>Bestseller's</h4>
+          <h4>Wishlist</h4>
         </nav>
       </header>
     )
