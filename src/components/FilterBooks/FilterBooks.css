@@ -9,13 +9,6 @@ button{
   display: block
 }
 
-.filter-links{
-  text-decoration: none
-}
-
-.filter-links:visited{
-  color: black
-}
 
 .filter-links:hover{
   color: green

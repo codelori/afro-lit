@@ -5,12 +5,19 @@ import BookDetails from '../BookDetails/BookDetails'
 
 class Home extends Component{
   render(){
-    console.log(this.props)
     return(
       <div className="component-container">
         <main>
-          <FilterBooks searchBook={this.props.searchBook} getNewBooks={this.props.getNewBooks}/>
-          <BookDetails books={this.props.books} favoritedBooks={this.props.favoritedBooks}/>
+          <FilterBooks 
+            selectGenre={this.props.selectGenre} 
+            searchBook={this.props.searchBook} 
+            getNewBooks={this.props.getNewBooks}
+            genreList={this.props.genreList}
+          />
+          <BookDetails 
+            books={this.props.books} 
+            favoritedBooks={this.props.favoritedBooks}
+            addToWishlist={this.props.addToWishlist}/>
         </main>
       </div>
     )

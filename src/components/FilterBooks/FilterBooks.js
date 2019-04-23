@@ -3,7 +3,7 @@ import './FilterBooks.css';
 
 class FilterBooks extends Component{
   render(){
-    const { searchBook, getNewBooks } = this.props
+    const { searchBook, getNewBooks, selectGenre, genreList } = this.props
     return(
       <div id="filter-books-container">
         <form onSubmit = {getNewBooks} >
@@ -13,20 +13,9 @@ class FilterBooks extends Component{
 
         <h3>Genre: </h3>
         <ul id="genre-list">
-          {/* <a className="filter-links" href="#"><li className="genre-list-items">Autobiography</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">Art</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">Biography</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">Fantasy</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">Fiction</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">History</li></a>
-          <a className="filter-links" href="#"><li className="genre-list-items">Science Fiction</li></a> */}
-          <li className="genre-list-items">Autobiography</li>
-          <li className="genre-list-items">Art</li>
-          <li className="genre-list-items">Biography</li>
-          <li className="genre-list-items">Fantasy</li>
-          <li className="genre-list-items">Fiction</li>
-          <li className="genre-list-items">History</li>
-          <li className="genre-list-items">Science Fiction</li>
+          {genreList.map(genre =>{
+            return <li key={genre} className="genre-list-items"><button type='submit' value={genre} onClick={selectGenre}>{genre}</button></li>
+          })}
         </ul>
       </div>
     )

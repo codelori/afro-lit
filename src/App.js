@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home/Home'
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from './components/Header/Header'
 import Bestsellers from './components/Bestsellers/Bestsellers'
 import Wishlist from './components/Wishlist/Wishlist'
@@ -13,14 +13,20 @@ class App extends Component {
     super(props);
     this.state={
       books: null,
-      searchTerm: 'biography',
-      genre: '',
-      favoritedBooks: []
+      searchTerm: '',
+      genreList:[
+        'Art', 'Biography', 'Fantasy', 'Fiction', 'Futurism','History', 'Manga', 'Romance', 'Young Adult'
+      ],
+      wishlistBooks: []
     }
      this.retrieveBooks = this.retrieveBooks.bind(this)
      this.handleOnChange = this.handleOnChange.bind(this)
      this.handleOnSubmit = this.handleOnSubmit.bind(this)
+     this.selectGenre = this.selectGenre.bind(this)
+     this.addToWishlist = this.addToWishlist.bind(this)
+     this.removeWishlist = this.removeWishlist.bind(this)
   }
+
   componentDidMount(){
     this.retrieveBooks()
   }
@@ -29,16 +35,13 @@ class App extends Component {
     fetch(Url)
       .then(response=>response.json())
       .then(data =>{
-        console.log(data.items);
         this.setState({
           books: data.items
         })
       })
   }
-
   handleOnChange(evt){
     evt.preventDefault();
-    console.log(evt.target.value)
     this.setState({
       searchTerm: evt.target.value
     })
@@ -49,11 +52,34 @@ class App extends Component {
     fetch(Url)
       .then(response=>response.json())
       .then(data =>{
-        console.log(data.items);
         this.setState({
           books: data.items
         })
       })
+  }
+  selectGenre(evt){
+    let Url = `https://www.googleapis.com/books/v1/volumes?q=afro-${evt.target.value}&printType=books&key=${googleBooksKey}`
+    fetch(Url)
+      .then(response=>response.json())
+      .then(data =>{
+        this.setState({
+          books: data.items
+        })
+      })
+
+  }
+  addToWishlist(book){
+    console.log(book)
+    this.state.wishlistBooks.push(book)
+    localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
+  //  localStorage.removeItem('book')
+  }
+
+  removeWishlist(book){
+    console.log('removed', book)
+    this.state.wishlistBooks.splice(book, 1)
+
+    localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
   }
 
   render() {
@@ -65,10 +91,13 @@ class App extends Component {
           searchBook={this.handleOnChange} 
           getNewBooks={this.handleOnSubmit} 
           books={this.state.books}
+          selectGenre={this.selectGenre}
+          genreList={this.state.genreList}
           favoritedBooks={this.state.favoritedBooks}
+          addToWishlist={this.addToWishlist}
         />}/>
         <Route path="/bestsellers" render={()=><Bestsellers />}/>
-        <Route path="/wishlist" render={()=><Wishlist/>}/>
+        <Route path="/wishlist" render={()=><Wishlist wishlistBooks={this.state.wishlistBooks} removeWishlist={this.removeWishlist}/>}/>
       </main>
     </div>
     );
