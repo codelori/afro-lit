@@ -3,10 +3,14 @@ import './FilterBooks.css';
 
 class FilterBooks extends Component{
   render(){
+    const { searchBook, getNewBooks } = this.props
     return(
       <div id="filter-books-container">
-        <input type="text" placeholder="Enter key word"/>
-        <button type="submit">Search</button>
+        <form onSubmit = {getNewBooks} >
+          <input type="text" placeholder="Enter key word" name="enteredTerm" onChange={searchBook}/>
+          <button type="submit">Search</button>
+        </form>
+
         <h3>Genre: </h3>
         <ul id="genre-list">
           {/* <a className="filter-links" href="#"><li className="genre-list-items">Autobiography</li></a>

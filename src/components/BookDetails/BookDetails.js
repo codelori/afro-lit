@@ -2,18 +2,51 @@ import React, { Component } from 'react'
 import './BookDetails.css';
 
 class BookDetails extends Component{
-  render(){
-    const { books } = this.props
-    console.log({books})
+  constructor(props){
+    super(props);
+    this.mapBooks = this.mapBooks.bind(this);
+    this.defaultBook = this.defaultBook.bind(this)
+  }
+
+  mapBooks(){
+    const {books} =this.props
+
+    let titles = books.map(book =>{
+      let srcLink;
+      {book.volumeInfo.imageLinks ? srcLink = book.volumeInfo.imageLinks.thumbnail : srcLink = 'https://static.thenounproject.com/png/340719-200.png' }
+      return  <div key={book.id} className='book-details-container'>
+                <img className ="book-cover" src={srcLink} alt="book cover"/>
+                <div className='book-text-container'> 
+                  <h2>{book.volumeInfo.title}</h2>
+                  <h4>{book.volumeInfo.authors}</h4>
+                  <h4>Description:</h4>
+                  <p className='description'>{book.volumeInfo.description}</p>
+                </div>
+                <button type="button" className="add-to-favorites">+ Wishlist</button>
+              </div>
+    })
+
+     return titles;
+
+  }
+
+  defaultBook(){
+      return <div className='book-details-container'>
+      <img className ="book-cover" src='https://images-na.ssl-images-amazon.com/images/I/A1agLFsWkOL.jpg' alt="book cover"/>
+      <div className='book-text-container'> 
+        <h2>Children of Blood and Bone</h2>
+        <h4>Tomi Adeyemi</h4>
+        <h4>Description:</h4>
+        <p>Tomi Adeyemi’s debut novel is the start of what promises to be an epic, addictive new series. The Children of Blood and Bone is influenced by Adeyemi’s West African heritage, and in it she bends religious deities (the Orïsha) and a diverse landscape into a refreshing new take on fantasy. The Children of Blood and Bone is told from multiple points of view, as Inan and Amari, children of the iron-fisted king, and Zélie and Tzain, siblings who have suffered greatly under the king’s regime, find themselves on a dark, magic-filled quest for power. Their journey is accompanied by violence and betrayal, but friendship and even star-crossed love also play a part. Enriched with themes that resonate in today’s social and political landscape, The Children of Blood and Bone takes on injustice, discrimination, and a struggle for change. The action and danger ramp up with each chapter, and I found myself racing through the final pages, holding my breath right up to the cliffhanger ending. -- Seira Wilson for the Amazon Book Review</p>
+      </div>
+    </div>
+
+  }
+
+  render(){ 
     return(
-      <div className='book-details-container'>
-        <img className ="book-cover" src="https://images-na.ssl-images-amazon.com/images/I/A1agLFsWkOL.jpg" alt="book cover"/>
-        <div className='book-text-container'> 
-          <h2>Children of Blood and Bone</h2>
-          <h4>Tomi Adeyemi</h4>
-          <h4>Description:</h4>
-          <p>Warren argues, quite bluntly, that “African American literature” has outlived its relevance as the dominant category for poetry, fiction, and plays written by African Americans. Contradicting an influential portion of the field, which regards this literature as an emanation of vernacular expression going back to slavery, and even to Africa, Warren asserts that African American literature was the body of literature and criticism written by black Americans within and against the strictures of Jim Crow America. In arguing against the continued relevance of the category of African American literature, Warren is certainly not claiming that racism has ceased to exist. </p>
-        </div>
+      <div>
+        {this.props.books ? this.mapBooks() : this.defaultBook()}
       </div>
     )
   }

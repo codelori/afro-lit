@@ -2,13 +2,31 @@
   width: 80%;
   min-width: 800px;
   height: 40vh;
-  border: solid black;
   display: flex;
   margin-left: 2.5%;
   margin-right: 2.5%;
-  padding: 1.5%
+  padding: 1.5%;
+  overflow: scroll;
+  margin-bottom: 10px;
 }
 .book-cover{
-  height: 100%;
+  width: 25%;
   margin-right: 1.5%
+}
+
+.book-text-container{
+  width: 75%
+}
+
+.add-to-favorites{
+  position: abosolute;
+  height: 30px;
+  width: 150px;
+  font-size: 20px;
+  background-color: green;
+  color: white
+}
+
+.add-to-favorites:hover{
+  background-color: orange;
 }
