@@ -3,8 +3,7 @@
   margin: 0 auto
 }
 #filter-books-container{
-
-  padding-right: 80px;
+  padding: 20px;
   margin-left: 2.5%;
   background-color:  #1CA67F
 
@@ -14,11 +13,25 @@ button{
   display: block
 }
 
-
-.filter-links:hover{
-  color: green
+.genre-list-items{
+  list-style: none;
+  /* width: 100% */
 }
 
-.genre-list-items{
-  list-style: none
+.genre-button{
+  background: none;
+  width: 200px;
+  color: white;
+  /* height: 30px; */
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: solid  white 2px
+
+}
+
+.genre-button:hover{
+  background: #F24E29
 }

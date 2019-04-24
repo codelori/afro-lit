@@ -1,0 +1,13 @@
+.remove-from-favorites{
+  position: abosolute;
+  height: 30px;
+  width: 150px;
+  font-size: 20px;
+  background-color: #F24E29;
+  color: white;
+  border-radius: 10px  
+}
+
+.remove-from-favorites:hover{
+  background-color: black;
+}

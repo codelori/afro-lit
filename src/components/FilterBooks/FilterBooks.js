@@ -12,11 +12,9 @@ class FilterBooks extends Component{
         </form>
 
         <h3>Genre: </h3>
-        <ul id="genre-list">
           {genreList.map(genre =>{
-            return <li key={genre} className="genre-list-items"><button type='submit' value={genre} onClick={selectGenre}>{genre}</button></li>
+            return <li key={genre} className="genre-list-items"><button type='submit' value={genre} onClick={selectGenre} className='genre-button'>{genre}</button></li>
           })}
-        </ul>
       </div>
     )
   }

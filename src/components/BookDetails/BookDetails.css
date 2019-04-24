@@ -9,15 +9,10 @@
   overflow: hidden;
   margin-bottom: 50px;
   border-radius: 10px;
-  box-shadow: 0 10px 12px -4px black;
+  box-shadow: 0 8px 12px -4px black;
   background-color:#F2F2F2
 }
 
-.button-row{
-  display: flex;
-  justify-content: flex-start
-
-}
 .book-cover{
   width: 25%;
   margin-right: 1.5%
@@ -27,7 +22,7 @@
   width: 75%
 }
 .description{
-  height: 30%;
+  height: 40%;
   overflow: scroll
 }
 
