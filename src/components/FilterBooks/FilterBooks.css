@@ -5,12 +5,31 @@
 #filter-books-container{
   padding: 20px;
   margin-left: 2.5%;
-  background-color:  #1CA67F
+  background-color:  #1CA67F;
+  border-radius: 10px;
+  box-shadow: 0 8px 12px -4px black;
+  height: 550px;
 
 }
-
-button{
-  display: block
+.search-input{
+  width: 100%;
+  height: 25px;
+  font-size: 18px;
+}
+.search-button{
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 25px;
+  background-color: #733641;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px
+}
+.search-button:hover{
+  color: black;
+  background-color: white
 }
 
 .genre-list-items{
@@ -28,7 +47,7 @@ button{
   padding-top: 10px;
   padding-bottom: 10px;
   border: none;
-  border-bottom: solid  white 2px
+  border-bottom: solid  white 1px
 
 }
 

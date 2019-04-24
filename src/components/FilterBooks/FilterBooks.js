@@ -7,8 +7,8 @@ class FilterBooks extends Component{
     return(
       <div id="filter-books-container">
         <form onSubmit = {getNewBooks} >
-          <input type="text" placeholder="Enter key word" name="enteredTerm" onChange={searchBook}/>
-          <button type="submit">Search</button>
+          <input className='search-input' type="text" placeholder="Enter key word" name="enteredTerm" onChange={searchBook}/>
+          <button className='search-button' type="submit">Search</button>
         </form>
 
         <h3>Genre: </h3>
