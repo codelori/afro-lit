@@ -69,16 +69,13 @@ class App extends Component {
 
   }
   addToWishlist(book){
-    console.log(book)
     this.state.wishlistBooks.push(book)
     localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
   //  localStorage.removeItem('book')
   }
 
-  removeWishlist(book){
-    console.log('removed', book)
-    this.state.wishlistBooks.splice(book, 1)
-
+  removeWishlist(index){
+    this.state.wishlistBooks.splice(index, 1) 
     localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
   }
 
