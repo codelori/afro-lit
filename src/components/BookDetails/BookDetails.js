@@ -16,13 +16,15 @@ class BookDetails extends Component{
       {book.volumeInfo.imageLinks ? srcLink = book.volumeInfo.imageLinks.thumbnail : srcLink = 'https://static.thenounproject.com/png/340719-200.png' }
       return  <div key={book.etag} className='book-details-container'>
                 <img className ="book-cover" src={srcLink} alt="book cover"/>
-                <div className='book-text-container'> 
-                  <h2>{book.volumeInfo.title}</h2>
+                <div className='book-text-container'>
+                  <div className='button-row'> 
+                    <h2>{book.volumeInfo.title}</h2>
+                    <button type="button" className="add-to-favorites" onClick={() => addToWishlist(book)}>+ Wishlist</button>
+                  </div>
                   <h4>{book.volumeInfo.authors}</h4>
                   <h4>Description:</h4>
                   <p className='description'>{book.volumeInfo.description}</p>
                 </div>
-                <button type="button" className="add-to-favorites" onClick={() => addToWishlist(book)}>+ Wishlist</button>
               </div>
     })
 

@@ -1,13 +1,22 @@
 .book-details-container{
-  width: 80%;
+  width: 70%;
   min-width: 800px;
   height: 40vh;
   display: flex;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
+  /* margin-left: 2.5%;
+  margin-right: 2.5%; */
   padding: 1.5%;
-  overflow: scroll;
-  margin-bottom: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0 10px 12px -4px black;
+  background-color:#F2F2F2
+}
+
+.button-row{
+  display: flex;
+  justify-content: flex-start
+
 }
 .book-cover{
   width: 25%;
@@ -17,14 +26,19 @@
 .book-text-container{
   width: 75%
 }
+.description{
+  height: 30%;
+  overflow: scroll
+}
 
 .add-to-favorites{
   position: abosolute;
   height: 30px;
   width: 150px;
   font-size: 20px;
-  background-color: green;
-  color: white
+  background-color: #1CA67F;
+  color: white;
+  border-radius: 10px 
 }
 
 .add-to-favorites:hover{

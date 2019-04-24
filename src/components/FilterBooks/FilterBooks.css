@@ -1,7 +1,12 @@
-
+*{
+  /* border: solid black; */
+  margin: 0 auto
+}
 #filter-books-container{
-  width: 200px;
+
+  padding-right: 80px;
   margin-left: 2.5%;
+  background-color:  #1CA67F
 
 }
 

@@ -8,12 +8,13 @@ import Wishlist from './components/Wishlist/Wishlist'
 
 const googleBooksKey = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY2;
 
+
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
       books: null,
-      searchTerm: '',
+      searchTerm: 'fantasy',
       genreList:[
         'Art', 'Biography', 'Fantasy', 'Fiction', 'Futurism','History', 'Manga', 'Romance', 'Young Adult'
       ],
@@ -83,7 +84,7 @@ class App extends Component {
     return (
       <div className='App'>
       <Header />
-      <main>
+      <main className='main-container'>
         <Route exact path="/" render={()=><Home
           searchBook={this.handleOnChange} 
           getNewBooks={this.handleOnSubmit} 
@@ -93,7 +94,6 @@ class App extends Component {
           favoritedBooks={this.state.favoritedBooks}
           addToWishlist={this.addToWishlist}
         />}/>
-        <Route path="/bestsellers" render={()=><Bestsellers />}/>
         <Route path="/wishlist" render={()=><Wishlist wishlistBooks={this.state.wishlistBooks} removeWishlist={this.removeWishlist}/>}/>
       </main>
     </div>

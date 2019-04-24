@@ -1,6 +1,7 @@
-/* .App {
-  text-align: center;
-} */
+*{
+  font-family: 'Raleway', sans-serif;
+}
 
-
-
+body{
+  background-color: rgb(245, 182, 66)
+}

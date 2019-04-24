@@ -6,11 +6,10 @@ class Header extends Component{
   render(){
     return(
       <header>
-        <h1>Afro Lit</h1>
+        <h1 id="page-title">Afro<span id='lit'>Lit</span></h1>
         <nav>
-        <Link to="/"><h4 className='nav-link'>Home</h4></Link>
-        <Link to="/bestsellers"><h4 className='nav-link'>Bestsellers</h4></Link>
-        <Link to="/wishlist"><h4 className='nav-link'>Wishlist</h4></Link>
+        <Link to="/" className='nav-link'><h4 className='nav-link-text'>HOME</h4></Link>
+        <Link to="/wishlist" className='nav-link'><h4 className='nav-link-text'>WISHLIST</h4></Link>
         </nav>
       </header>
     )

@@ -19,7 +19,7 @@ class Wishlist extends Component{
                   <h4>Description:</h4>
                   <p className='description'>{book.volumeInfo.description}</p>
                 </div>
-                <button type="button" className="add-to-favorites" onClick={() => removeWishlist(index)}>+ Wishlist</button>
+                <button type="button" className="remove-from-favorites" onClick={() => removeWishlist(book[index])}>- Remove</button>
               </div>
     })
 
