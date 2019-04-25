@@ -31,6 +31,7 @@ class App extends Component {
   componentDidMount(){
     this.retrieveBooks()
   }
+
   retrieveBooks(){
     let Url = `https://www.googleapis.com/books/v1/volumes?q=afro-${this.state.searchTerm}&printType=books&key=${googleBooksKey}`
     fetch(Url)
@@ -41,12 +42,14 @@ class App extends Component {
         })
       })
   }
+
   handleOnChange(evt){
     evt.preventDefault();
     this.setState({
       searchTerm: evt.target.value
     })
   }
+
   handleOnSubmit(evt){
     evt.preventDefault();
     let Url = `https://www.googleapis.com/books/v1/volumes?q=afro-${this.state.searchTerm}&printType=books&key=${googleBooksKey}`
@@ -58,6 +61,7 @@ class App extends Component {
         })
       })
   }
+
   selectGenre(evt){
     let Url = `https://www.googleapis.com/books/v1/volumes?q=afro-${evt.target.value}&printType=books&key=${googleBooksKey}`
     fetch(Url)
@@ -69,14 +73,30 @@ class App extends Component {
       })
 
   }
+
   addToWishlist(book){
-    this.state.wishlistBooks.push(book)
-    localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
-  //  localStorage.removeItem('book')
+    // this.state.wishlistBooks.push(book)
+    let arr=[];
+    if(localStorage.getItem('book')){
+      arr = JSON.parse(localStorage.getItem('book'));
+    }
+    arr.push(book)
+
+    if(arr.length>0){
+      localStorage.setItem('book', JSON.stringify(arr))
+    }
+    console.log(arr)
+    this.setState({
+      wishlistBooks: arr
+    })
   }
 
   removeWishlist(index){
-    this.state.wishlistBooks.splice(index, 1) 
+    const currentBooks = this.state.wishlistBooks
+    currentBooks.splice(index, 1) 
+    this.setState({
+      wishlistBooks: currentBooks
+    })
     localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
   }
 
@@ -85,7 +105,7 @@ class App extends Component {
       <div className='App'>
       <Header />
       <main className='main-container'>
-        <Route exact path="/" render={()=><Home
+        <Route exact path='/' render={()=><Home
           searchBook={this.handleOnChange} 
           getNewBooks={this.handleOnSubmit} 
           books={this.state.books}
@@ -94,7 +114,7 @@ class App extends Component {
           favoritedBooks={this.state.favoritedBooks}
           addToWishlist={this.addToWishlist}
         />}/>
-        <Route path="/wishlist" render={()=><Wishlist wishlistBooks={this.state.wishlistBooks} removeWishlist={this.removeWishlist}/>}/>
+        <Route path='/wishlist' render={()=><Wishlist wishlistBooks={this.state.wishlistBooks} removeWishlist={this.removeWishlist}/>}/>
       </main>
     </div>
     );
