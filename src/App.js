@@ -18,7 +18,7 @@ class App extends Component {
       genreList:[
         'Art', 'Biography', 'Fantasy', 'Fiction', 'Futurism','History', 'Manga', 'Romance', 'Young Adult'
       ],
-      wishlistBooks: []
+      wishlistBooks: JSON.parse(localStorage.getItem('book')) || []
     }
      this.retrieveBooks = this.retrieveBooks.bind(this)
      this.handleOnChange = this.handleOnChange.bind(this)
@@ -30,6 +30,8 @@ class App extends Component {
 
   componentDidMount(){
     this.retrieveBooks()
+    // localStorage.removeItem('book')
+    
   }
 
   retrieveBooks(){
@@ -81,23 +83,38 @@ class App extends Component {
       arr = JSON.parse(localStorage.getItem('book'));
     }
     arr.push(book)
-
+    console.log(arr)
     if(arr.length>0){
       localStorage.setItem('book', JSON.stringify(arr))
     }
-    console.log(arr)
+  
     this.setState({
       wishlistBooks: arr
     })
+    
   }
 
   removeWishlist(index){
-    const currentBooks = this.state.wishlistBooks
+    // localStorage.clear('books')
+
+    
+    let currentBooks = JSON.parse(localStorage.getItem('book'))
     currentBooks.splice(index, 1) 
-    this.setState({
-      wishlistBooks: currentBooks
-    })
-    localStorage.setItem('book', JSON.stringify(this.state.wishlistBooks))
+    console.log('current books', currentBooks)
+    localStorage.setItem('book', JSON.stringify(currentBooks))
+    // console.log('current books spliced', currentBooks)
+    // if (currentBooks.length === 0){
+    //   currentBooks = []
+      this.setState({
+        wishlistBooks: JSON.parse(localStorage.getItem('book')) 
+      })
+    // }
+    // else{
+    //   this.setState({
+    //     wishlistBooks: currentBooks
+    //   })
+    // }
+    
   }
 
   render() {

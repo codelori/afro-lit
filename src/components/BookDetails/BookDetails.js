@@ -19,7 +19,7 @@ class BookDetails extends Component{
                 <div className='book-text-container'> 
                   <h2>{book.volumeInfo.title}</h2>
                   <h4>{book.volumeInfo.authors}</h4>
-                  <h4>Description:</h4>
+                  <h4 className='description-title'>Description:</h4>
                   <p className='description'>{book.volumeInfo.description}</p>
                 </div>
                 <button type='button' className='add-to-favorites' onClick={() => addToWishlist(book)}>+ Wishlist</button>

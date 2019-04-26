@@ -22,10 +22,12 @@
   width: 75%
 }
 .description{
-  height: 40%;
+  height: 65%;
   overflow: scroll
 }
-
+.description-title{
+  margin-top: 20px;
+}
 .add-to-favorites{
   position: abosolute;
   height: 30px;

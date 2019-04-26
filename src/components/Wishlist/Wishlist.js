@@ -30,7 +30,7 @@ class Wishlist extends Component{
   render(){
     return(
       <div>
-        {this.props.wishlistBooks? this.mapBooks() : <h1>Add some books to your wishlist!</h1>}
+        {this.props.wishlistBooks.length>0? this.mapBooks() : <h1>Add some books to your wishlist!</h1>}
         
       </div> 
     )
